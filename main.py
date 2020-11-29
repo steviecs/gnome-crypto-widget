@@ -7,7 +7,8 @@ from gi.repository import Gtk
 class MainWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Crypto Widget")
-        table.create_table_data(self)
+        table.create_column_headers(self)
+        table.create_row_values(self)
 
 
 win = MainWindow()

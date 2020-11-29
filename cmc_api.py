@@ -1,7 +1,10 @@
+import os
+import json
+from dotenv import load_dotenv
 from requests import Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-import json
 
+load_dotenv()
 
 def get_data():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -12,7 +15,7 @@ def get_data():
     }
     headers = {
         'Accepts': 'application/json',
-        'X-CMC_PRO_API_KEY': 'some-api-key',
+        'X-CMC_PRO_API_KEY': os.getenv('CMC_API_KEY'),
     }
 
     session = Session()
